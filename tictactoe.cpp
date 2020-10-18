@@ -50,28 +50,27 @@ int Active_Player()
         else
             Player = 'X';
     }
-
-int winning_condition_X()
+char winning_condition_X()
     {
         /* 1 2 3
            4 5 6
            7 8 9 */
         if (Screen[0][0] == 'X' && Screen[0][1] == 'X' && Screen[0][2] == 'X')
-            return 9;
+            return 'X';
         if (Screen[1][0] == 'X' && Screen[1][1] == 'X' && Screen[1][2] == 'X')
-            return 9;
+            return 'X';
         if (Screen[2][0] == 'X' && Screen[2][1] == 'X' && Screen[2][2] == 'X')
-            return 9;
+            return 'X';
         if (Screen[0][0] == 'X' && Screen[1][0] == 'X' && Screen[2][0] == 'X')
-            return 9;
+            return 'X';
         if (Screen[0][1] == 'X' && Screen[1][1] == 'X' && Screen[2][1] == 'X')
-            return 9;
+            return 'X';
         if (Screen[0][2] == 'X' && Screen[1][2] == 'X' && Screen[2][2] == 'X')
-            return 9;
+            return 'X';
         if (Screen[0][0] == 'X' && Screen[1][1] == 'X' && Screen[2][2] == 'X')
-            return 9;
+            return 'X';
         if (Screen[0][2] == 'X' && Screen[1][1] == 'X' && Screen[2][0] == 'X')
-            return 9;
+            return 'X';
         return '/';
     }
 char winning_condition_O()
@@ -104,7 +103,7 @@ int main()
             {
                 screen_draw();
                 input_screen();
-                if(winning_condition_X() == 9)
+                if(winning_condition_X() == 'X')
                     {
                         screen_draw();
                         cout << "Player 1 Wins!" <<endl;
@@ -118,7 +117,6 @@ int main()
                     }
                 Active_Player();
             }
-        //screen_draw();
         system("pause");
         return 0;
     }
