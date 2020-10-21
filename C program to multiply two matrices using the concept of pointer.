@@ -1,0 +1,103 @@
+//C program to multiply two matrices using pointer
+#include <stdio.h>
+#include <conio.h>
+
+int main(){
+	//defining varaibles
+int M,N,O,P; //matrix order defining variables
+int i,j; //iterating loop variables
+int k=0,a=0; //miscellaneous variables 
+int m1[20][20]; //matrix 1
+int m2[20][20]; //matrix 2
+int mult[20][20]; //resultant matrix after multiplication
+
+
+printf("Enter the order of matrix 1 :");
+    scanf("%d%d",&M,&N);
+    printf("\nEnter first matrix of %dx%d order :\n", M, N);
+    
+for (i = 0; i < M; i++){
+        
+for (j = 0; j < N; j++)
+            scanf("%d", (*(m1 + i) + j));
+ }
+  
+  printf("\nThe matrix 1 is : \n");
+   
+ for (i = 0; i < M; i++)
+    {
+        
+for (j = 0; j < N; j++)
+            printf(" %d", *(*(m1 + i) + j));
+            printf("\n");
+    }
+
+printf("\nEnter the order of matrix 2 :");
+scanf("%d%d",&O,&P);
+
+if(O!=N){
+    printf("\n!!THE ORDER OF MATRIX 2 IS INVALID FOR MULTIPLICATION!!");
+}else{
+   
+ printf("\nEnter second matrix of %dx%d order :\n", O, P);
+
+for (i = 0; i < O; i++)
+    {
+      
+  for (j = 0; j < P; j++)
+            scanf("%d", (*(m2 + i) + j));
+
+    }
+   
+ printf("\nThe matrix 2 is : \n");
+
+    for (i = 0; i < O; i++)
+    {
+       
+ for (j = 0; j < P; j++)
+
+            printf(" %d", *(*(m2 + i) + j));
+            printf("\n");
+
+    }
+
+
+//multiplication part
+    for (i = 0; i < M; i++)
+    {
+      
+  for (j = 0; j < P; j++)
+        {
+while(k<N){
+ 
+ a = a + (*(*(m1 + i) + k)) * (*(*(m2 + k) + j));
+k++;
+}
+  *(*(mult + i) + j) = a;
+            a = 0;
+k=0;
+
+        }
+    }
+
+//display result
+    printf("\n\nMultiplication of given matrices (order of %dx%d) is : \n",M,P);
+     for (i = 0; i < M; i++) {
+        for (j = 0; j < P; j++)
+printf(" %d", *(*(mult + i) + j));
+
+
+        printf("\n");
+    }
+}
+return 0;
+}
+
+
+
+
+
+
+
+
+
