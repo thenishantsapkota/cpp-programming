@@ -1,0 +1,30 @@
+//C program to print the Fibonacci series of length given by user
+#include<stdio.h>
+ int main(){
+   int n; //series length
+   int firstElement = 0; //first element
+	 int secondElement = 1; //second element
+	 int nextElement; //next element
+	 int i; //iterating loop variable
+   
+ //take series length as user input
+   printf("Enter the number (Series Length): ");
+   scanf("%d",&n);
+   
+ //print the fibonacci series upto series length n
+   printf("\nThe Fibonacci series upto length %d is:\n",n);
+   for ( i = 0 ; i < n ; i++ )
+   {
+      if ( i <= 1 )
+         nextElement = i;
+      else
+      {
+         nextElement = firstElement + secondElement;
+         firstElement = secondElement;
+         secondElement = nextElement;
+      }
+      printf("%d\n",nextElement);
+   }
+ 
+   return 0;
+}
